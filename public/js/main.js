@@ -7,30 +7,25 @@ let data = JSON.parse(rawData);
 function calculateMortgage(principle, interestrate, loanterm){
     var r = (parseFloat(interestrate)/100)/12;
     var n = 12 * loanterm;
-    console.log("r", r);
-    console.log("n", n);
 
     var numerator = r *((1 + r)**n);
-    console.log("numerator", numerator);
     var denominator = ((1+ r)**n)-1;
-    console.log("denominator", denominator);
-
+    
     var monthlypayment = (principle * (numerator/denominator)).toFixed(2);
-    console.log("monthlypayment", monthlypayment);
-
+    
     var totalInterestRateAtEnd = monthlypayment * n;
-    console.log("totalInterestRateAtEnd", totalInterestRateAtEnd);
-
+    
     var totalAmountAtEnd = parseFloat(principle) + parseFloat(totalInterestRateAtEnd);
-    console.log("totalAmountAtEnd", totalAmountAtEnd);
+
     
     return {monthlypayment, totalInterestRateAtEnd, totalAmountAtEnd};
 }
 
 function storeResult(monthlypayment, totalInterestRateAtEnd, totalAmountAtEnd, principle, interestrate, loanterm){
-    console.log("monthlypayment, totalInterestRateAtEnd, totalAmountAtEnd, principle, interestrate, loanterm", monthlypayment, totalInterestRateAtEnd, totalAmountAtEnd, principle, interestrate, loanterm);
+//    console.log("monthlypayment, totalInterestRateAtEnd, totalAmountAtEnd, principle, interestrate, loanterm", monthlypayment, totalInterestRateAtEnd, totalAmountAtEnd, principle, interestrate, loanterm);
     const record = {monthlypayment: monthlypayment, totalInterestRateAtEnd:totalInterestRateAtEnd, totalAmountAtEnd:totalAmountAtEnd, principle:principle, interestrate:interestrate, loanterm:loanterm};
     console.log("record:", record);
+    console.log("dataxxxxxxxxx", data);
     data.push(record);
     fs.writeFileSync(fileName, JSON.stringify(data));
     return "successful";
@@ -40,7 +35,7 @@ function getMortgages(){
     return data;
 }
 
-function calculateAverages(){
+function calculateAverages(data){
     let totalMonthlyPayment = 0;
     let totalInterestRateAtEnd = 0;
     let totalAmountAtEnd = 0;
@@ -56,6 +51,7 @@ function calculateAverages(){
     let averageLoanTerm = 0;
 
 
+    
     if(data.length > 0){
         for(let i = 0; i < data.length; i++){
             totalMonthlyPayment += parseFloat(data[i].monthlypayment);
@@ -87,4 +83,4 @@ function calculateAverages(){
     
 }
 
-module.exports = {calculateMortgage, storeResult, getMortgages, calculateAverages};
+module.exports = {calculateMortgage, storeResult, calculateAverages, getMortgages};
