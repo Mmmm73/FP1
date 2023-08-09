@@ -1,0 +1,103 @@
+#navbar{
+    background-color: #1A5276;
+}
+
+#navbar-link{
+    color: white;
+}
+
+#nav-div{
+    text-align: right;
+    width: 100%;
+}
+
+#nav-link-div{
+    margin-right: 30%;
+    font-size: 18px;
+}
+
+#nav-link{
+    font-size: 17px;
+    color: white;
+}
+
+#row-one-col-one{
+/*    background: 
+    linear-gradient(
+      rgba(255, 0, 0, 0.45), 
+      rgba(255, 0, 0, 0.45)
+    ),
+    /* bottom, image */
+/*    url(house-1867187_1280.jpg);
+    height: 700px;
+    background-position: center;
+    background-size: 1550px;*/
+    background-image: url("house-1867187_1280.jpg");
+    height: 1000px;
+    background-position: top;
+    background-size: 1550px;
+    
+    
+}
+
+#row-one-col-one-title{
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+#row-one-col-one-par{
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#row-one-col-one-div-one{
+    margin-top: 30%;
+    margin-left: 10%;
+
+}
+
+#row-one-col-one-div-one-one{
+    margin-left: 15%;
+}
+
+#row-two-col-two{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    
+}
+#row-two-col-two-main{
+    margin-top: 10%;
+}
+
+#row-two-col-two-title{
+    text-align: center;
+}
+
+#row-two-col-two-div-title{
+    margin-top: 10%;
+}
+
+#row-two-col-two-title{
+    color: #1A5276;
+}
+
+#row-two-col-two-row-one-col-two{
+    margin-top: 5%;
+}
+
+#submit-button{
+    background-color: #1A5276;
+    text-align: center;
+    margin-left: 30%;
+}
+.result{
+    color: #1A5276;
+}
+
+footer{
+    margin-top: 0%;
+    background-color: #1A5276;
+    color: #1A5276;
+    height: 20px;
+}
