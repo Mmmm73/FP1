@@ -14,6 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Clear GitHub Actions Cache
+      run: rm -rf ~/.npm
+
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
