@@ -14,12 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-<<<<<<< HEAD
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 14
-=======
+
     - name: Clear GitHub Actions Cache
       run: rm -rf ~/.npm
 
@@ -27,7 +26,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version:  16.x
->>>>>>> 7e547cdc7c32e82cdaee12da7fe05276c07e83d0
+
 
     - name: Install dependencies
       run: npm install
