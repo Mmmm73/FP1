@@ -1,9 +1,16 @@
 const express = require('express');
+const fs = require('fs');
+const fileName = 'records.json';
+//let rawData = fs.readFileSync(fileName);
+//let data = JSON.parse(rawData);
+
 const hbs = require('hbs');
 const path = require('path');
 const app = express();
+
 const port = process.env.PORT || 3000;
-const { calculateMortgage, storeResult, getMortgages, calculateAverages } = require('./public/js/main');
+
+const { calculateMortgage, storeResult, calculateAverages, getMortgages } = require('./public/js/main');
 //app.use(express.urlencoded());
 
 app.set('views', path.join(__dirname)+"/views");
@@ -15,13 +22,8 @@ app.use(express.urlencoded({ extended: true }))
 
 
 const bodyParser = require('body-parser');
-const fs = require('fs');
-const jsonParser = bodyParser.json();
-const fileName = 'records.json';
 
-// Load data from file
-let rawData = fs.readFileSync(fileName);
-let data = JSON.parse(rawData);
+const jsonParser = bodyParser.json();
 
 
 app.get('/', function(request, response){
@@ -40,8 +42,12 @@ app.post('/', (request, response) => {
 });
 
 app.get('/mortgages', function(request, response){
-    let data = getMortgages();
-    let {averageMonthlyPayment, averageInterestRateAtEnd, averageAmountAtEnd, averagePrinciple, averageInterestRate, averageLoanTerm} = calculateAverages();
+    let rawData = fs.readFileSync(fileName);
+    let data = JSON.parse(rawData);
+//    let datatwo = getMortgages();
+    console.log("dataxxxxxxxx", data);
+  //  console.log("dataxxxxxxxxtwo", datatwo);
+    let {averageMonthlyPayment, averageInterestRateAtEnd, averageAmountAtEnd, averagePrinciple, averageInterestRate, averageLoanTerm} = calculateAverages(data);
     response.render('mortgages', { data: data,  averageMonthlyPayment: averageMonthlyPayment, averageInterestRateAtEnd, averageAmountAtEnd, averagePrinciple, averageInterestRate, averageLoanTerm});
 });
 
