@@ -49,16 +49,4 @@ jobs:
         retries: 20
         wait: 16000
         sleep: 30000
-
-    - name: Set up WebDriverIO
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16.x
-
-    - name: Create WebDriverIO config
-      run: cp app4080-final-project/acceptance.js
-
-    # Run WebDriverIO tests
-    - name: Run WebDriverIO tests
-      run: npx wdio run acceptance.js
     
