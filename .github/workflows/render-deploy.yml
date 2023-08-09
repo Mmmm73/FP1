@@ -17,7 +17,9 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
+
         node-version: 16.x
+
     - name: Clear GitHub Actions Cache
       run: rm -rf ~/.npm
 
@@ -25,6 +27,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version:  16.x
+
 
     - name: Install dependencies
       run: npm install
