@@ -13,7 +13,7 @@ function calculateMortgage(principle, interestrate, loanterm){
     
     var monthlypayment = (principle * (numerator/denominator)).toFixed(2);
     
-    var totalInterestRateAtEnd = monthlypayment * n;
+    var totalInterestRateAtEnd = (monthlypayment * n).toFixed(2);
     
     var totalAmountAtEnd = parseFloat(principle) + parseFloat(totalInterestRateAtEnd);
 

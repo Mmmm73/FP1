@@ -21,28 +21,28 @@
         <label for="loanterm">Loan Term(years):</label><br>
         <input type="text"  id="loanterm" name="loanterm" class="form-control"><br><br>
 
-        <button > Submit</button>
+        <button id="submit-button"> Submit</button>
 <!--        <p id="bmi-result"></p>{{bmiData}}<br>-->
 <!--        <p id="bmi-prediction"></p>-->
     </form>
 
      {{#if monthlypayment}}
-     <p>Monthly Payment: {{monthlypayment}}</p>
+     <p id="monthly-payment-display">Monthly Payment: {{monthlypayment}}</p>
      {{/if}}
      {{#if principle}}
-     <p>Prinicple: {{principle}}</p>
+     <p id="principle-display">Principle: {{principle}}</p>
      {{/if}}
      {{#if interestrate}}
-     <p>Interest Rate: {{interestrate}}</p>
+     <p id="interest-rate-display">Interest Rate: {{interestrate}}</p>
      {{/if}}
      {{#if loanterm}}
-     <p>Loan term: {{loanterm}}</p>
+     <p id="loan-term-display">Loan term: {{loanterm}}</p>
      {{/if}}
     {{#if totalInterestRateAtEnd}}
-     <p>Total Interest(at the end): {{totalInterestRateAtEnd}}</p>
+     <p id="total-interest-display">Total Interest(at the end): {{totalInterestRateAtEnd}}</p>
      {{/if}}
      {{#if totalAmountAtEnd}}
-     <p>Total Amount(at the end): {{totalAmountAtEnd}}</p>
+     <p id="total-amount-display">Total Amount(at the end): {{totalAmountAtEnd}}</p>
      {{/if}}
 
 </body>
