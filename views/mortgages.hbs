@@ -1,66 +1,143 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Mortgages</title>
-        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body >
-        <a href="/">Home</a>
-        <h1>Mortgages</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Principle </th>
-                    <th>Interest Rate</th>
-                    <th>Long Term</th>
-                    <th>Monthly Payments</th>
-                    <th>Total Interest</th>
-                    <th>Total Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each data}}
-                <tr>
-                    <td>{{principle}}</td>
-                    <td>{{interestrate}}</td>
-                    <td>{{loanterm}}</td>
-                    <td>{{monthlypayment}}</td>
-                    <td>{{totalInterestRateAtEnd}}</td>
-                    <td>{{totalAmountAtEnd}}</td>
-                    
-                </tr>
-                {{/each}}
-            </tbody>
-    </table>
-    
-    {{#if averagePrinciple}}
-        <p id="average-principle-display">Average principle: {{averagePrinciple}}</p>
-    {{/if}}
+        <nav id="navbar" class="navbar navbar-teal navbar-light bg-teal">
+            <div  class="container-fluid">
+                <div id="nav-div">
+                    <div id="nav-link-div">
+                        <a id="nav-link" class="navbar-brand" href="/">Home</a>
+                        <a id="nav-link" class="navbar-brand" href="/mortgages">Mortages</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row" id="mortgage-row-one">
+                <div class="col">
 
-    {{#if averageInterestRate}}
-        <p id="average-interest-rate-display">Average interest rate: {{averageInterestRate}}</p>
-    {{/if}}
+                </div>
+                <div class="col">
+                    <br><br>
+                    <h2 id="mortgage-row-one-col-two-title">Mortgages</h2>
+                </div>
+                <div class="col">
 
-    {{#if averageLoanTerm}}
-        <p id="average-long-term-display">Average long term: {{averageLoanTerm}}</p>
-    {{/if}}
+                </div>
+            </div>
 
-    {{#if averageMonthlyPayment}}
-        <p id="average-monthly-payment-display">Average monthly payment: {{averageMonthlyPayment}}</p>
-    {{/if}}
+            <div class="row" id="mortgage-row-two">
 
-    {{#if averageInterestRateAtEnd}}
-        <p id="average-interest-at-the-end-display">Average total interest payment: {{averageInterestRateAtEnd}}</p>
-    {{/if}}
+                <div class="col-sm-12 col-md-2">
 
-    {{#if averageAmountAtEnd}}
-        <p id="average-amount-at-the-end-display">Average total amount: {{averageAmountAtEnd}}</p>
-    {{/if}}
+                </div>
 
-    
+                <div class="col-sm-12 col-md-8">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Principle </th>
+                                <th>Interest Rate</th>
+                                <th>Long Term</th>
+                                <th>Monthly Payments</th>
+                                <th>Total Interest</th>
+                                <th>Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each data}}
+                            <tr>
+                                <td>{{principle}}</td>
+                                <td>{{interestrate}}</td>
+                                <td>{{loanterm}}</td>
+                                <td>{{monthlypayment}}</td>
+                                <td>{{totalInterestRateAtEnd}}</td>
+                                <td>{{totalAmountAtEnd}}</td>
+                               
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                </table>
+
+                </div>
+
+                <div class="col-sm-12 col-md-2">
+
+                </div>
+
+            </div>
+
+            <div  class="row" id="mortgage-row-three">
+                <div class="col-md-2">
+
+                </div>
+
+                <div class="col" id="mortgage-row-three-col-two">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            {{#if averagePrinciple}}
+                            <p id="average-principle-display"><b><span class="result">Average principle  : </span></b><span id="average-principle-display-result">{{averagePrinciple}}/=</span></p>
+                            {{/if}}
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            {{#if averageInterestRate}}
+                            <p id="average-interest-rate-display"><b><span class="result">Average interest rate  : </span></b><span id="average-interest-rate-display-result">{{averageInterestRate}}%</span></p>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            {{#if averageLoanTerm}}
+                            <p id="average-long-term-display"><b><span class="result">Average long term  : </span></b><span id="average-long-term-display-result">{{averageLoanTerm}} Years</span></p>
+                            {{/if}}
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            {{#if averageMonthlyPayment}}
+                            <p id="average-monthly-payment-display"><b><span class="result">Average monthly payment  : </span></b><span id="average-monthly-payment-display-result">{{averageMonthlyPayment}}/=</span></p>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            {{#if averageInterestRateAtEnd}}
+                            <p id="average-interest-at-the-end-display"><b><span class="result">Average total interest payment  : </span></b><span id="average-interest-at-the-end-display-result">{{averageInterestRateAtEnd}}/=</span></p>
+                            {{/if}}
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            {{#if averageAmountAtEnd}}
+                            <p id="average-amount-at-the-end-display"><b><span class="result">Average total amount  : </span></b><span id="average-amount-at-the-end-display-result">{{averageAmountAtEnd}}/=</span></p>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    <br><br><br>
+                </div>
+
+                <div class="col-md-2">
+
+                </div>
+            </div>
+
+        </div>
+  <footer>
+   
+  </footer>
 
 
+
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     </body>
 
 </html>
+
