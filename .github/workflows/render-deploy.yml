@@ -51,7 +51,6 @@ jobs:
         sleep: 30000
 
     - name: Run WebDriverIO tests
-      run: | 
-        npm install -g webdriverio
-        webdriverio run acceptance.js
+      run: npx webdriverio run acceptance.js
+
     
